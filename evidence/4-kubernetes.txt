@@ -1,0 +1,54 @@
+Set kubectl context to "kind-relay"
+Image: "agent-relay:local" with ID "sha256:ef7d849665c5201739ab5a26dfe1d29895d6fe6a9613b4b5d7816398894c2890" not yet present on node "relay-control-plane", loading...
+persistentvolumeclaim/postgres-data created
+deployment.apps/postgres created
+service/postgres created
+Waiting for deployment spec update to be observed...
+Waiting for deployment spec update to be observed...
+Waiting for deployment "postgres" rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for deployment "postgres" rollout to finish: 0 of 1 updated replicas are available...
+deployment "postgres" successfully rolled out
+deployment.apps/agent-relay created
+service/agent-relay created
+Waiting for deployment "agent-relay" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "agent-relay" rollout to finish: 1 of 2 updated replicas are available...
+deployment "agent-relay" successfully rolled out
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/agent-relay   2/2     2            2           7s
+deployment.apps/postgres      1/1     1            1           55s
+
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/agent-relay-f5c67dd95-j9mm7   1/1     Running   0          7s
+pod/agent-relay-f5c67dd95-jpfmb   1/1     Running   0          7s
+pod/postgres-7bccc76c6d-r8pkt     1/1     Running   0          52s
+
+NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/agent-relay   NodePort    10.96.33.148    <none>        8000:30080/TCP   7s
+service/kubernetes    ClusterIP   10.96.0.1       <none>        443/TCP          61s
+service/postgres      ClusterIP   10.96.150.145   <none>        5432/TCP         55s
+
+NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/postgres-data   Bound    pvc-81495640-695a-42a8-a407-b98b2f2ffaae   1Gi        RWO            standard       <unset>                 55s
+  ready: {'status': 'ready'} | heading: ['<h1>Agent Relay</h1>']
+  send    -> queued
+  claimed -> processing
+  result  -> completed HELLO
+  FLOW OK
+--- postgres rows:
+  status   | count 
+-----------+-------
+ completed |     1
+(1 row)
+
+deployment.apps/postgres restarted
+Waiting for deployment "postgres" rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for deployment "postgres" rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for deployment "postgres" rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for deployment "postgres" rollout to finish: 0 of 1 updated replicas are available...
+deployment "postgres" successfully rolled out
+--- after postgres restart:
+ count 
+-------
+     1
+(1 row)
+

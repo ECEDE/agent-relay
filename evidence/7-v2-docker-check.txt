@@ -1,0 +1,7 @@
+#13 DONE 0.1s
+Resolving despite existing lockfile due to removal of global exclude newer
+  ready: {'status': 'ready'} | heading: ['<h1>Agent Relay v2</h1>']
+  send    -> queued
+  claimed -> processing
+  result  -> completed HELLO
+  FLOW OK

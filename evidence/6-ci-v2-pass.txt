@@ -1,0 +1,286 @@
+time="2026-09-24T23:11:20+03:00" level=info msg="Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'"
+[ci/test] ⭐ Run Set up job
+[ci/test] 🚀  Start image=catthehacker/ubuntu:act-latest
+[ci/test]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform=linux/arm64 username= forcePull=true
+[ci/test]   🐳  docker create image=catthehacker/ubuntu:act-latest platform=linux/arm64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[ci/test]   🐳  docker run image=catthehacker/ubuntu:act-latest platform=linux/arm64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[ci/test]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[ci/test]   ✅  Success - Set up job
+[ci/test]   ☁  git clone 'https://github.com/astral-sh/setup-uv' # ref=v5
+[ci/test] ⭐ Run Main actions/checkout@v4
+[ci/test]   🐳  docker cp src=/Users/cerenoner/Desktop/agent-relay/. dst=/Users/cerenoner/Desktop/agent-relay
+[ci/test]   ✅  Success - Main actions/checkout@v4 [24.882ms]
+[ci/test] ⭐ Run Main astral-sh/setup-uv@v5
+[ci/test]   🐳  docker cp src=/Users/cerenoner/.cache/act/astral-sh-setup-uv@v5/ dst=/var/run/act/actions/astral-sh-setup-uv@v5/
+[ci/test]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/arm64/bin/node /var/run/act/actions/astral-sh-setup-uv@v5/dist/setup/index.js] user= workdir=
+[ci/test]   | (node:31) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[ci/test]   | (Use `node --trace-deprecation ...` to show where the warning was created)
+[ci/test]   | Found uv in tool-cache for 0.12.18
+[ci/test]   | Added /root/.local/bin to the path
+[ci/test]   | Added /opt/hostedtoolcache/uv/0.12.18/aarch64 to the path
+[ci/test]   ❓ add-matcher /run/act/actions/astral-sh-setup-uv@v5/.github/python.json
+[ci/test]   | Set UV_CACHE_DIR to /tmp/setup-uv-cache
+[ci/test]   | Successfully installed uv version 0.12.18
+[ci/test]   ✅  Success - Main astral-sh/setup-uv@v5 [1.347752375s]
+[ci/test]   ⚙  ::set-env:: UV_CACHE_DIR=/tmp/setup-uv-cache
+[ci/test]   ⚙  ::set-output:: uv-version=0.12.18
+[ci/test]   ⚙  ::set-output:: uv-path=/opt/hostedtoolcache/uv/0.12.18/aarch64/uv
+[ci/test]   ⚙  ::set-output:: uvx-path=/opt/hostedtoolcache/uv/0.12.18/aarch64/uvx
+[ci/test]   ⚙  ::add-path:: /root/.local/bin
+[ci/test]   ⚙  ::add-path:: /opt/hostedtoolcache/uv/0.12.18/aarch64
+[ci/test] ⭐ Run Main uv sync
+[ci/test]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[ci/test]   | Downloading cpython-3.11.16-linux-aarch64-gnu (download) (29.7MiB)
+[ci/test]   |  Downloaded cpython-3.11.16-linux-aarch64-gnu (download)
+[ci/test]   | Using CPython 3.11.16
+[ci/test]   | Creating virtual environment at: .venv
+[ci/test]   | Resolving despite existing lockfile due to removal of global exclude newer
+[ci/test]   | Resolved 35 packages in 2.13s
+[ci/test]   | Downloading pygments (1.2MiB)
+[ci/test]   | Downloading psycopg-binary (6.5MiB)
+[ci/test]   | Downloading pydantic-core (1.9MiB)
+[ci/test]   | Downloading sqlalchemy (3.2MiB)
+[ci/test]   | Downloading uvloop (3.6MiB)
+[ci/test]   |  Downloaded pygments
+[ci/test]   |  Downloaded pydantic-core
+[ci/test]   |  Downloaded sqlalchemy
+[ci/test]   |  Downloaded uvloop
+[ci/test]   |  Downloaded psycopg-binary
+[ci/test]   | Prepared 32 packages in 17.86s
+[ci/test]   | warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+[ci/test]   |          If the cache and target directories are on different filesystems, hardlinking may not be supported.
+[ci/test]   |          If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+[ci/test]   | Installed 32 packages in 61ms
+[ci/test]   |  + annotated-doc==0.0.5
+[ci/test]   |  + annotated-types==0.8.0
+[ci/test]   |  + anyio==4.14.2
+[ci/test]   |  + certifi==2026.7.22
+[ci/test]   |  + click==8.5.0
+[ci/test]   |  + fastapi==0.141.1
+[ci/test]   |  + greenlet==3.5.5
+[ci/test]   |  + h11==0.16.0
+[ci/test]   |  + httpcore==1.0.9
+[ci/test]   |  + httptools==0.8.0
+[ci/test]   |  + httpx==0.28.1
+[ci/test]   |  + idna==3.19
+[ci/test]   |  + iniconfig==2.3.0
+[ci/test]   |  + packaging==26.3
+[ci/test]   |  + pluggy==1.6.0
+[ci/test]   |  + psycopg==3.3.5
+[ci/test]   |  + psycopg-binary==3.3.5
+[ci/test]   |  + pydantic==2.13.5
+[ci/test]   |  + pydantic-core==2.46.5
+[ci/test]   |  + pydantic-settings==2.15.0
+[ci/test]   |  + pygments==2.21.0
+[ci/test]   |  + pytest==9.1.1
+[ci/test]   |  + python-dotenv==1.2.3
+[ci/test]   |  + pyyaml==6.0.3
+[ci/test]   |  + sqlalchemy==2.0.52
+[ci/test]   |  + starlette==1.6.0
+[ci/test]   |  + typing-extensions==4.16.0
+[ci/test]   |  + typing-inspection==0.4.4
+[ci/test]   |  + uvicorn==0.52.4
+[ci/test]   |  + uvloop==0.22.1
+[ci/test]   |  + watchfiles==1.2.0
+[ci/test]   |  + websockets==17.1
+[ci/test]   ✅  Success - Main uv sync [26.265938958s]
+[ci/test] ⭐ Run Main uv run pytest -q
+[ci/test]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[ci/test]   | ......                                                                   [100%]
+[ci/test]   | =============================== warnings summary ===============================
+[ci/test]   | .venv/lib/python3.11/site-packages/fastapi/testclient.py:1
+[ci/test]   |   /Users/cerenoner/Desktop/agent-relay/.venv/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+[ci/test]   |     from starlette.testclient import TestClient as TestClient  # noqa
+[ci/test]   | 
+[ci/test]   | -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[ci/test]   | 6 passed, 1 warning in 1.00s
+[ci/test]   ✅  Success - Main uv run pytest -q [1.730076458s]
+[ci/test] ⭐ Run Post astral-sh/setup-uv@v5
+[ci/test]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/arm64/bin/node /var/run/act/actions/astral-sh-setup-uv@v5/dist/save-cache/index.js] user= workdir=
+[ci/test]   | (node:165) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[ci/test]   | (Use `node --trace-deprecation ...` to show where the warning was created)
+[ci/test]   ✅  Success - Post astral-sh/setup-uv@v5 [129.674292ms]
+[ci/test] ⭐ Run Complete job
+[ci/test] Cleaning up container for job test
+[ci/test]   ✅  Success - Complete job
+[ci/test] 🏁  Job succeeded
+[ci/build-and-deploy] ⭐ Run Set up job
+[ci/build-and-deploy] 🚀  Start image=catthehacker/ubuntu:act-latest
+[ci/build-and-deploy]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform=linux/arm64 username= forcePull=true
+[ci/build-and-deploy]   🐳  docker create image=catthehacker/ubuntu:act-latest platform=linux/arm64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[ci/build-and-deploy]   🐳  docker run image=catthehacker/ubuntu:act-latest platform=linux/arm64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[ci/build-and-deploy]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[ci/build-and-deploy]   ✅  Success - Set up job
+[ci/build-and-deploy]   ☁  git clone 'https://github.com/helm/kind-action' # ref=v1
+[ci/build-and-deploy] ⭐ Run Main actions/checkout@v4
+[ci/build-and-deploy]   🐳  docker cp src=/Users/cerenoner/Desktop/agent-relay/. dst=/Users/cerenoner/Desktop/agent-relay
+[ci/build-and-deploy]   ✅  Success - Main actions/checkout@v4 [27.934708ms]
+[ci/build-and-deploy] ⭐ Run Main docker build -t agent-relay:local .
+[ci/build-and-deploy]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/1] user= workdir=
+[ci/build-and-deploy]   | #0 building with "default" instance using docker driver
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #1 [internal] load build definition from Dockerfile
+[ci/build-and-deploy]   | #1 transferring dockerfile: 317B done
+[ci/build-and-deploy]   | #1 DONE 0.0s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #2 [internal] load metadata for ghcr.io/astral-sh/uv:latest
+[ci/build-and-deploy]   | #2 DONE 0.7s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #3 [internal] load metadata for docker.io/library/python:3.11-slim
+[ci/build-and-deploy]   | #3 DONE 0.7s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #4 [internal] load .dockerignore
+[ci/build-and-deploy]   | #4 transferring context: 114B done
+[ci/build-and-deploy]   | #4 DONE 0.0s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #5 FROM ghcr.io/astral-sh/uv:latest@sha256:3adc3706091ce7c2fe595e669628caedd6d951551b92b258b7e7dbe06d9440bc
+[ci/build-and-deploy]   | #5 resolve ghcr.io/astral-sh/uv:latest@sha256:3adc3706091ce7c2fe595e669628caedd6d951551b92b258b7e7dbe06d9440bc 0.0s done
+[ci/build-and-deploy]   | #5 DONE 0.0s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #6 [stage-0 1/6] FROM docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9
+[ci/build-and-deploy]   | #6 resolve docker.io/library/python:3.11-slim@sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9 0.0s done
+[ci/build-and-deploy]   | #6 DONE 0.0s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #7 [internal] load build context
+[ci/build-and-deploy]   | #7 transferring context: 326.00kB done
+[ci/build-and-deploy]   | #7 DONE 0.0s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #8 [stage-0 2/6] COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+[ci/build-and-deploy]   | #8 CACHED
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #9 [stage-0 3/6] WORKDIR /app
+[ci/build-and-deploy]   | #9 CACHED
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #10 [stage-0 4/6] COPY pyproject.toml uv.lock ./
+[ci/build-and-deploy]   | #10 DONE 0.0s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #11 [stage-0 5/6] RUN uv sync --frozen --no-dev
+[ci/build-and-deploy]   | #11 0.177 Using CPython 3.11.16 interpreter at: /usr/local/bin/python3
+[ci/build-and-deploy]   | #11 0.177 Creating virtual environment at: .venv
+[ci/build-and-deploy]   | #11 0.369 Downloading uvloop (3.6MiB)
+[ci/build-and-deploy]   | #11 0.369 Downloading psycopg-binary (6.5MiB)
+[ci/build-and-deploy]   | #11 0.371 Downloading pydantic-core (1.9MiB)
+[ci/build-and-deploy]   | #11 0.393 Downloading sqlalchemy (3.2MiB)
+[ci/build-and-deploy]   | #11 4.720  Downloaded pydantic-core
+[ci/build-and-deploy]   | #11 7.915  Downloaded sqlalchemy
+[ci/build-and-deploy]   | #11 8.463  Downloaded uvloop
+[ci/build-and-deploy]   | #11 10.27  Downloaded psycopg-binary
+[ci/build-and-deploy]   | #11 10.27 Prepared 24 packages in 10.08s
+[ci/build-and-deploy]   | #11 10.29 Installed 24 packages in 19ms
+[ci/build-and-deploy]   | #11 10.29  + annotated-doc==0.0.5
+[ci/build-and-deploy]   | #11 10.29  + annotated-types==0.8.0
+[ci/build-and-deploy]   | #11 10.29  + anyio==4.14.2
+[ci/build-and-deploy]   | #11 10.29  + click==8.5.0
+[ci/build-and-deploy]   | #11 10.29  + fastapi==0.141.1
+[ci/build-and-deploy]   | #11 10.29  + greenlet==3.5.5
+[ci/build-and-deploy]   | #11 10.29  + h11==0.16.0
+[ci/build-and-deploy]   | #11 10.29  + httptools==0.8.0
+[ci/build-and-deploy]   | #11 10.29  + idna==3.19
+[ci/build-and-deploy]   | #11 10.29  + psycopg==3.3.5
+[ci/build-and-deploy]   | #11 10.29  + psycopg-binary==3.3.5
+[ci/build-and-deploy]   | #11 10.29  + pydantic==2.13.5
+[ci/build-and-deploy]   | #11 10.29  + pydantic-core==2.46.5
+[ci/build-and-deploy]   | #11 10.29  + pydantic-settings==2.15.0
+[ci/build-and-deploy]   | #11 10.29  + python-dotenv==1.2.3
+[ci/build-and-deploy]   | #11 10.29  + pyyaml==6.0.3
+[ci/build-and-deploy]   | #11 10.29  + sqlalchemy==2.0.52
+[ci/build-and-deploy]   | #11 10.29  + starlette==1.6.0
+[ci/build-and-deploy]   | #11 10.29  + typing-extensions==4.16.0
+[ci/build-and-deploy]   | #11 10.29  + typing-inspection==0.4.4
+[ci/build-and-deploy]   | #11 10.29  + uvicorn==0.52.4
+[ci/build-and-deploy]   | #11 10.29  + uvloop==0.22.1
+[ci/build-and-deploy]   | #11 10.29  + watchfiles==1.2.0
+[ci/build-and-deploy]   | #11 10.29  + websockets==17.1
+[ci/build-and-deploy]   | #11 DONE 10.4s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #12 [stage-0 6/6] COPY . .
+[ci/build-and-deploy]   | #12 DONE 0.0s
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | #13 exporting to image
+[ci/build-and-deploy]   | #13 exporting layers
+[ci/build-and-deploy]   | #13 exporting layers 1.4s done
+[ci/build-and-deploy]   | #13 exporting manifest sha256:c5432b91221b79902c2fde13d21ba1c2463ffe00d2f67a095ce87ddf4c8558d6
+[ci/build-and-deploy]   | #13 exporting manifest sha256:c5432b91221b79902c2fde13d21ba1c2463ffe00d2f67a095ce87ddf4c8558d6 done
+[ci/build-and-deploy]   | #13 exporting config sha256:67b2e3a23bdc392a2c6cae8b4ac2cfb0e9b1b84cdf7ca70eef32860ba2b90921 done
+[ci/build-and-deploy]   | #13 exporting attestation manifest sha256:415dc6c519d713dbfb5fd662503652bc3290760b6f07dd1c2ad1a0ead4b53b68 done
+[ci/build-and-deploy]   | #13 exporting manifest list sha256:22f0126449b66e0837fd98c34dce70b548e22421776b65cef6f59222ba47ad56 done
+[ci/build-and-deploy]   | #13 naming to docker.io/library/agent-relay:local done
+[ci/build-and-deploy]   | #13 unpacking to docker.io/library/agent-relay:local
+[ci/build-and-deploy]   | #13 unpacking to docker.io/library/agent-relay:local 0.3s done
+[ci/build-and-deploy]   | #13 DONE 1.8s
+[ci/build-and-deploy]   ✅  Success - Main docker build -t agent-relay:local . [13.096083792s]
+[ci/build-and-deploy] ⭐ Run Main helm/kind-action@v1
+[ci/build-and-deploy]   🐳  docker cp src=/Users/cerenoner/.cache/act/helm-kind-action@v1/ dst=/var/run/act/actions/helm-kind-action@v1/
+[ci/build-and-deploy]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/arm64/bin/node /var/run/act/actions/helm-kind-action@v1/main.js] user= workdir=
+[ci/build-and-deploy]   | Adding kind directory to PATH...
+[ci/build-and-deploy]   | Adding kubectl directory to PATH...
+[ci/build-and-deploy]   | kind v0.31.0 go1.25.5 linux/arm64
+[ci/build-and-deploy]   | Client Version: v1.35.0
+[ci/build-and-deploy]   | Kustomize Version: v5.7.1
+[ci/build-and-deploy]   | Creating kind cluster...
+[ci/build-and-deploy]   | Creating cluster "relay" ...
+[ci/build-and-deploy]   |  • Ensuring node image (kindest/node:v1.35.0) 🖼  ...
+[ci/build-and-deploy]   |  ✓ Ensuring node image (kindest/node:v1.35.0) 🖼
+[ci/build-and-deploy]   |  • Preparing nodes 📦   ...
+[ci/build-and-deploy]   |  ✓ Preparing nodes 📦 
+[ci/build-and-deploy]   |  • Writing configuration 📜  ...
+[ci/build-and-deploy]   |  ✓ Writing configuration 📜
+[ci/build-and-deploy]   |  • Starting control-plane 🕹️  ...
+[ci/build-and-deploy]   |  ✓ Starting control-plane 🕹️
+[ci/build-and-deploy]   |  • Installing CNI 🔌  ...
+[ci/build-and-deploy]   |  ✓ Installing CNI 🔌
+[ci/build-and-deploy]   |  • Installing StorageClass 💾  ...
+[ci/build-and-deploy]   |  ✓ Installing StorageClass 💾
+[ci/build-and-deploy]   |  • Waiting ≤ 1m0s for control-plane = Ready ⏳  ...
+[ci/build-and-deploy]   |  ✓ Waiting ≤ 1m0s for control-plane = Ready ⏳
+[ci/build-and-deploy]   |  • Ready after 17s 💚
+[ci/build-and-deploy]   | Set kubectl context to "kind-relay"
+[ci/build-and-deploy]   | You can now use your cluster with:
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | kubectl cluster-info --context kind-relay
+[ci/build-and-deploy]   | 
+[ci/build-and-deploy]   | Have a nice day! 👋
+[ci/build-and-deploy]   ✅  Success - Main helm/kind-action@v1 [25.760702292s]
+[ci/build-and-deploy]   ⚙  ::add-path:: /opt/hostedtoolcache/kind/v0.31.0/arm64/kind/bin/
+[ci/build-and-deploy]   ⚙  ::add-path:: /opt/hostedtoolcache/kind/v0.31.0/arm64/kubectl/bin/
+[ci/build-and-deploy] ⭐ Run Main kind load docker-image agent-relay:local --name relay
+kubectl apply -f k8s/postgres.yaml
+kubectl rollout status deploy/postgres --timeout=120s
+kubectl apply -f k8s/api.yaml
+kubectl rollout restart deploy/agent-relay
+kubectl rollout status deploy/agent-relay --timeout=120s
+[ci/build-and-deploy]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[ci/build-and-deploy]   | Image: "agent-relay:local" with ID "sha256:22f0126449b66e0837fd98c34dce70b548e22421776b65cef6f59222ba47ad56" not yet present on node "relay-control-plane", loading...
+[ci/build-and-deploy]   | persistentvolumeclaim/postgres-data created
+[ci/build-and-deploy]   | deployment.apps/postgres created
+[ci/build-and-deploy]   | service/postgres created
+[ci/build-and-deploy]   | Waiting for deployment "postgres" rollout to finish: 0 of 1 updated replicas are available...
+[ci/build-and-deploy]   | deployment "postgres" successfully rolled out
+[ci/build-and-deploy]   | deployment.apps/agent-relay created
+[ci/build-and-deploy]   | service/agent-relay created
+[ci/build-and-deploy]   | deployment.apps/agent-relay restarted
+[ci/build-and-deploy]   | Waiting for deployment "agent-relay" rollout to finish: 1 out of 2 new replicas have been updated...
+[ci/build-and-deploy]   | Waiting for deployment "agent-relay" rollout to finish: 1 out of 2 new replicas have been updated...
+[ci/build-and-deploy]   | Waiting for deployment "agent-relay" rollout to finish: 1 out of 2 new replicas have been updated...
+[ci/build-and-deploy]   | Waiting for deployment "agent-relay" rollout to finish: 1 old replicas are pending termination...
+[ci/build-and-deploy]   | Waiting for deployment "agent-relay" rollout to finish: 1 old replicas are pending termination...
+[ci/build-and-deploy]   | Waiting for deployment "agent-relay" rollout to finish: 1 old replicas are pending termination...
+[ci/build-and-deploy]   | Waiting for deployment "agent-relay" rollout to finish: 1 old replicas are pending termination...
+[ci/build-and-deploy]   | Waiting for deployment "agent-relay" rollout to finish: 1 old replicas are pending termination...
+[ci/build-and-deploy]   | deployment "agent-relay" successfully rolled out
+[ci/build-and-deploy]   ✅  Success - Main kind load docker-image agent-relay:local --name relay
+kubectl apply -f k8s/postgres.yaml
+kubectl rollout status deploy/postgres --timeout=120s
+kubectl apply -f k8s/api.yaml
+kubectl rollout restart deploy/agent-relay
+kubectl rollout status deploy/agent-relay --timeout=120s
+ [43.613944875s]
+[ci/build-and-deploy] ⭐ Run Post helm/kind-action@v1
+[ci/build-and-deploy]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/arm64/bin/node /var/run/act/actions/helm-kind-action@v1/cleanup.js] user= workdir=
+[ci/build-and-deploy]   | Deleting cluster "relay" ...
+[ci/build-and-deploy]   | Deleted nodes: ["relay-control-plane"]
+[ci/build-and-deploy]   ✅  Success - Post helm/kind-action@v1 [908.895541ms]
+[ci/build-and-deploy] ⭐ Run Complete job
+[ci/build-and-deploy] Cleaning up container for job build-and-deploy
+[ci/build-and-deploy]   ✅  Success - Complete job
+[ci/build-and-deploy] 🏁  Job succeeded

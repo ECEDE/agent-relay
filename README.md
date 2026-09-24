@@ -100,3 +100,17 @@ running tests against another database.
 This starter intentionally does not include Docker, Kubernetes, CI, external
 brokers, an LLM, or a PostgreSQL implementation. Those are deployment and
 student-port concerns rather than part of the local relay protocol.
+
+## Deployment (homework 3)
+
+```bash
+docker build -t agent-relay:local .                 # image
+docker compose up --build                           # API + PostgreSQL on :8000
+kind create cluster --name relay --config kind-config.yaml
+kind load docker-image agent-relay:local --name relay
+kubectl apply -f k8s/postgres.yaml && kubectl apply -f k8s/api.yaml
+```
+
+CI (`.github/workflows/ci.yml`) runs the tests first; the build/deploy job only
+runs if they pass. Run it locally with `act push`. Run logs are in `evidence/`.
+On PostgreSQL, writer transactions are serialized with an advisory lock.

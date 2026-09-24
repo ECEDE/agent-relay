@@ -1,0 +1,31 @@
+name: ci
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      - run: uv run pytest -q
+
+  build-and-deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t agent-relay:local .
+      - uses: helm/kind-action@v1
+        with:
+          cluster_name: relay
+          config: kind-config.yaml
+      - run: |
+          kind load docker-image agent-relay:local --name relay
+          kubectl apply -f k8s/postgres.yaml
+          kubectl rollout status deploy/postgres --timeout=120s
+          kubectl apply -f k8s/api.yaml
+          kubectl rollout restart deploy/agent-relay
+          kubectl rollout status deploy/agent-relay --timeout=120s

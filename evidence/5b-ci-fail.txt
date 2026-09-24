@@ -1,0 +1,116 @@
+time="2026-09-24T23:09:44+03:00" level=info msg="Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'"
+[ci/test] ⭐ Run Set up job
+[ci/test] 🚀  Start image=catthehacker/ubuntu:act-latest
+[ci/test]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform=linux/arm64 username= forcePull=true
+[ci/test]   🐳  docker create image=catthehacker/ubuntu:act-latest platform=linux/arm64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[ci/test]   🐳  docker run image=catthehacker/ubuntu:act-latest platform=linux/arm64 entrypoint=["tail" "-f" "/dev/null"] cmd=[] network="host"
+[ci/test]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=
+[ci/test]   ✅  Success - Set up job
+[ci/test]   ☁  git clone 'https://github.com/astral-sh/setup-uv' # ref=v5
+[ci/test] ⭐ Run Main actions/checkout@v4
+[ci/test]   🐳  docker cp src=/Users/cerenoner/Desktop/agent-relay/. dst=/Users/cerenoner/Desktop/agent-relay
+[ci/test]   ✅  Success - Main actions/checkout@v4 [31.22675ms]
+[ci/test] ⭐ Run Main astral-sh/setup-uv@v5
+[ci/test]   🐳  docker cp src=/Users/cerenoner/.cache/act/astral-sh-setup-uv@v5/ dst=/var/run/act/actions/astral-sh-setup-uv@v5/
+[ci/test]   🐳  docker exec cmd=[/opt/acttoolcache/node/24.19.0/arm64/bin/node /var/run/act/actions/astral-sh-setup-uv@v5/dist/setup/index.js] user= workdir=
+[ci/test]   | (node:31) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[ci/test]   | (Use `node --trace-deprecation ...` to show where the warning was created)
+[ci/test]   | Found uv in tool-cache for 0.12.18
+[ci/test]   | Added /root/.local/bin to the path
+[ci/test]   | Added /opt/hostedtoolcache/uv/0.12.18/aarch64 to the path
+[ci/test]   ❓ add-matcher /run/act/actions/astral-sh-setup-uv@v5/.github/python.json
+[ci/test]   | Set UV_CACHE_DIR to /tmp/setup-uv-cache
+[ci/test]   | Successfully installed uv version 0.12.18
+[ci/test]   ✅  Success - Main astral-sh/setup-uv@v5 [1.315019s]
+[ci/test]   ⚙  ::set-env:: UV_CACHE_DIR=/tmp/setup-uv-cache
+[ci/test]   ⚙  ::set-output:: uv-version=0.12.18
+[ci/test]   ⚙  ::set-output:: uv-path=/opt/hostedtoolcache/uv/0.12.18/aarch64/uv
+[ci/test]   ⚙  ::set-output:: uvx-path=/opt/hostedtoolcache/uv/0.12.18/aarch64/uvx
+[ci/test]   ⚙  ::add-path:: /root/.local/bin
+[ci/test]   ⚙  ::add-path:: /opt/hostedtoolcache/uv/0.12.18/aarch64
+[ci/test] ⭐ Run Main uv sync
+[ci/test]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/2] user= workdir=
+[ci/test]   | Downloading cpython-3.11.16-linux-aarch64-gnu (download) (29.7MiB)
+[ci/test]   |  Downloaded cpython-3.11.16-linux-aarch64-gnu (download)
+[ci/test]   | Using CPython 3.11.16
+[ci/test]   | Creating virtual environment at: .venv
+[ci/test]   | Resolved 35 packages in 0.98ms
+[ci/test]   | Downloading pydantic-core (1.9MiB)
+[ci/test]   | Downloading pygments (1.2MiB)
+[ci/test]   | Downloading uvloop (3.6MiB)
+[ci/test]   | Downloading psycopg-binary (6.5MiB)
+[ci/test]   | Downloading sqlalchemy (3.2MiB)
+[ci/test]   |  Downloaded pygments
+[ci/test]   |  Downloaded pydantic-core
+[ci/test]   |  Downloaded sqlalchemy
+[ci/test]   |  Downloaded uvloop
+[ci/test]   |  Downloaded psycopg-binary
+[ci/test]   | Prepared 32 packages in 19.47s
+[ci/test]   | warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+[ci/test]   |          If the cache and target directories are on different filesystems, hardlinking may not be supported.
+[ci/test]   |          If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+[ci/test]   | Installed 32 packages in 70ms
+[ci/test]   |  + annotated-doc==0.0.5
+[ci/test]   |  + annotated-types==0.8.0
+[ci/test]   |  + anyio==4.14.2
+[ci/test]   |  + certifi==2026.7.22
+[ci/test]   |  + click==8.5.0
+[ci/test]   |  + fastapi==0.141.1
+[ci/test]   |  + greenlet==3.5.5
+[ci/test]   |  + h11==0.16.0
+[ci/test]   |  + httpcore==1.0.9
+[ci/test]   |  + httptools==0.8.0
+[ci/test]   |  + httpx==0.28.1
+[ci/test]   |  + idna==3.19
+[ci/test]   |  + iniconfig==2.3.0
+[ci/test]   |  + packaging==26.3
+[ci/test]   |  + pluggy==1.6.0
+[ci/test]   |  + psycopg==3.3.5
+[ci/test]   |  + psycopg-binary==3.3.5
+[ci/test]   |  + pydantic==2.13.5
+[ci/test]   |  + pydantic-core==2.46.5
+[ci/test]   |  + pydantic-settings==2.15.0
+[ci/test]   |  + pygments==2.21.0
+[ci/test]   |  + pytest==9.1.1
+[ci/test]   |  + python-dotenv==1.2.3
+[ci/test]   |  + pyyaml==6.0.3
+[ci/test]   |  + sqlalchemy==2.0.52
+[ci/test]   |  + starlette==1.6.0
+[ci/test]   |  + typing-extensions==4.16.0
+[ci/test]   |  + typing-inspection==0.4.4
+[ci/test]   |  + uvicorn==0.52.4
+[ci/test]   |  + uvloop==0.22.1
+[ci/test]   |  + watchfiles==1.2.0
+[ci/test]   |  + websockets==17.1
+[ci/test]   ✅  Success - Main uv sync [26.063964s]
+[ci/test] ⭐ Run Main uv run pytest -q
+[ci/test]   🐳  docker exec cmd=[bash -e /var/run/act/workflow/3] user= workdir=
+[ci/test]   | .....F                                                                   [100%]
+[ci/test]   | =================================== FAILURES ===================================
+[ci/test]   | ____________________________ test_dashboard_heading ____________________________
+[ci/test]   | 
+[ci/test]   |     def test_dashboard_heading():
+[ci/test]   |         with TestClient(main.app) as client:
+[ci/test]   |             response = client.get("/")
+[ci/test]   |             assert response.status_code == 200
+[ci/test]   | >           assert "<h1>Agent Relay</h1>" in response.text
+[ci/test]   | E           assert '<h1>Agent Relay</h1>' in '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8"><meta name="viewport" content="width=device-width,...    document.querySelector(\'#refresh\').onclick = refresh; if (token.value) refresh();\n  </script>\n</body></html>\n'
+[ci/test]   | E            +  where '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8"><meta name="viewport" content="width=device-width,...    document.querySelector(\'#refresh\').onclick = refresh; if (token.value) refresh();\n  </script>\n</body></html>\n' = <Response [200 OK]>.text
+[ci/test]   | 
+[ci/test]   | test_integration.py:52: AssertionError
+[ci/test]   | =============================== warnings summary ===============================
+[ci/test]   | .venv/lib/python3.11/site-packages/fastapi/testclient.py:1
+[ci/test]   |   /Users/cerenoner/Desktop/agent-relay/.venv/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+[ci/test]   |     from starlette.testclient import TestClient as TestClient  # noqa
+[ci/test]   | 
+[ci/test]   | -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[ci/test]   | =========================== short test summary info ============================
+[ci/test]   | FAILED test_integration.py::test_dashboard_heading - assert '<h1>Agent Relay</h1>' in '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8"><meta name="viewport" content="width=device-width,...    document.querySelector(\'#refresh\').onclick = refresh; if (token.value) refresh();\n  </script>\n</body></html>\n'
+[ci/test]   |  +  where '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8"><meta name="viewport" content="width=device-width,...    document.querySelector(\'#refresh\').onclick = refresh; if (token.value) refresh();\n  </script>\n</body></html>\n' = <Response [200 OK]>.text
+[ci/test]   | 1 failed, 5 passed, 1 warning in 1.11s
+[ci/test]   ❌  Failure - Main uv run pytest -q [1.928748958s]
+[ci/test] exitcode '1': failure
+[ci/test] ⭐ Run Complete job
+[ci/test]   ✅  Success - Complete job
+[ci/test] 🏁  Job failed
+Error: Job 'test' failed

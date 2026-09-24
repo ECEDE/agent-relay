@@ -1,0 +1,12 @@
+#13 unpacking to docker.io/library/agent-relay:local done
+#13 DONE 0.1s
+IMAGE               ID             DISK USAGE   CONTENT SIZE   EXTRA
+agent-relay:local   2a6579fc6697        380MB         87.8MB        
+NAMES                                                                          IMAGE                            PORTS
+relay-single                                                                   agent-relay:local                0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+act-ci-test-4dd2818dd777dbd387fd209fcdd4bf6b72aaca91b75aed5a0f49c9d6b0515b62   catthehacker/ubuntu:act-latest   
+  ready: {'status': 'ready'} | heading: ['<h1>Agent Relay</h1>']
+  send    -> queued
+  claimed -> processing
+  result  -> completed HELLO
+  FLOW OK

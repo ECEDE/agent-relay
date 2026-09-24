@@ -1,0 +1,18 @@
+ Container agent-relay-postgres-1 Started 
+ Container agent-relay-postgres-1 Healthy 
+ Container agent-relay-api-1 Started 
+NAME                     IMAGE               COMMAND                  SERVICE    CREATED          STATUS                   PORTS
+agent-relay-api-1        agent-relay:local   "uvicorn main:app --…"   api        10 seconds ago   Up 6 seconds             0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+agent-relay-postgres-1   postgres:16         "docker-entrypoint.s…"   postgres   10 seconds ago   Up 9 seconds (healthy)   5432/tcp
+  ready: {'status': 'ready'} | heading: ['<h1>Agent Relay</h1>']
+  send    -> queued
+  claimed -> processing
+  result  -> completed HELLO
+  FLOW OK
+--- postgres rows:
+  status   | count 
+-----------+-------
+ completed |     1
+(1 row)
+
+ Network agent-relay_default Removed 

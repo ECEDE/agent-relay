@@ -189,7 +189,12 @@ def immediate_transaction() -> Generator[Session, None, None]:
     connection = engine.connect()
     session = Session(bind=connection, expire_on_commit=False, autoflush=True)
     try:
-        connection.exec_driver_sql("BEGIN IMMEDIATE")
+        if _is_sqlite(DATABASE_URL):
+            connection.exec_driver_sql("BEGIN IMMEDIATE")
+        else:
+            # PostgreSQL: a transaction-scoped advisory lock serializes writers
+            # the same way SQLite's writer reservation does.
+            connection.exec_driver_sql("SELECT pg_advisory_xact_lock(727274)")
         yield session
         session.flush()
         connection.commit()
